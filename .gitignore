@@ -1,0 +1,23 @@
+# Node dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Environment variables & API Keys
+.env
+.env.local
+.env.*.local
+
+# Compiled TypeScript output
+dist/
+build/
+*.tsbuildinfo
+
+# VS Code & IDE settings
+.vscode/
+.idea/
+
+# OS temporary files
+.DS_Store
+Thumbs.db
