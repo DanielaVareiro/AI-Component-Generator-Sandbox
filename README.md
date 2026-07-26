@@ -26,4 +26,4 @@ A dynamic web application that generates styled HTML & Tailwind CSS components o
 - **Tooling:** TypeScript Compiler (`tsc`), Browser-native `fetch` API
 
 ---
-
+>**Medicina Dei comitare nos**
