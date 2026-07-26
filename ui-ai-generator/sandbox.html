@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Component Generator</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link rel="stylesheet" href="./global.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
+
+  <header class="border-b border-slate-800 p-4 bg-slate-950/50 backdrop-blur">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
+        ⚡ AI Component Generator
+      </h1>
+      <span class="text-xs bg-purple-500/10 text-purple-400 border border-purple-500/20 px-2.5 py-1 rounded-full font-mono">
+        Powered by Groq
+      </span>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 grid grid-cols-1 md:grid-cols-12 gap-6">
+    
+    <section class="md:col-span-4 flex flex-col gap-4 bg-slate-800/40 p-5 rounded-2xl border border-slate-800">
+      <h2 class="text-lg font-semibold text-slate-200">Describe the Component</h2>
+      
+      <textarea 
+        id="promptInput"
+        placeholder="E.g., A dark profile card with a round avatar, name, highlighted role, and social media buttons..."
+        class="w-full flex-1 min-h-48 p-3.5 bg-slate-950 border border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 text-sm text-slate-200 placeholder-slate-500 resize-none"
+      ></textarea>
+
+      <button 
+        id="generateBtn"
+        class="w-full py-3 px-4 bg-purple-600 hover:bg-purple-500 text-white font-medium rounded-xl shadow-lg shadow-purple-600/20 transition-all duration-200 flex items-center justify-center gap-2 active:scale-[0.98]"
+      >
+        <span>Generate Component</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+      </button>
+    </section>
+
+    <section class="md:col-span-8 flex flex-col bg-slate-800/40 rounded-2xl border border-slate-800 overflow-hidden">
+      <div class="border-b border-slate-800 p-3 bg-slate-950/30 flex justify-between items-center">
+        <span class="text-xs font-mono text-slate-400 uppercase tracking-wider">Live Preview</span>
+      </div>
+      
+      <div 
+        id="previewContainer" 
+        class="flex-1 p-8 bg-slate-950/60 flex items-center justify-center min-h-96"
+      >
+        <p class="text-slate-500 text-sm italic">
+          Your AI-generated component will appear here...
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

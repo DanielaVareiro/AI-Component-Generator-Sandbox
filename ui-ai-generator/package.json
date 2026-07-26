@@ -1,0 +1,20 @@
+{
+  "name": "ai-component-generator",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "tsx script.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "autoprefixer": "^10.5.4",
+    "postcss": "^8.5.22",
+    "tailwindcss": "^4.3.3",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "groq-sdk": "^1.4.0"
+  }
+}
