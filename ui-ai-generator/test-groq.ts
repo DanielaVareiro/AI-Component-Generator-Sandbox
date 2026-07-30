@@ -1,7 +1,6 @@
 import 'dotenv/config';
 import Groq from 'groq-sdk';
 
-// A biblioteca lê automaticamente a variável GROQ_API_KEY do seu ambiente
 const groq = new Groq();
 
 async function testarGroq() {
