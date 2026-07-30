@@ -1,11 +1,9 @@
-// Cole sua chave real do Groq aqui (que começa com gsk_...)
-const GROQ_API_KEY = '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'; 
+const GROQ_API_KEY = prompt('Paste your Groq API key:') || '';
 
 const promptInput = document.getElementById('promptInput') as HTMLTextAreaElement;
 const generateBtn = document.getElementById('generateBtn') as HTMLButtonElement;
 const previewContainer = document.getElementById('previewContainer') as HTMLDivElement;
 
-// 1. Atalho: Enviar ao apertar Enter (sem dar quebra de linha)
 promptInput?.addEventListener('keydown', (e: KeyboardEvent) => {
   if (e.key === 'Enter' && !e.shiftKey) {
     e.preventDefault();
@@ -23,7 +21,6 @@ async function generateComponent() {
     return;
   }
 
-  // Estado de Carregamento
   generateBtn.disabled = true;
   generateBtn.innerText = 'Generating... ⚡';
   previewContainer.innerHTML = `
@@ -36,7 +33,6 @@ async function generateComponent() {
   try {
     const systemInstruction = `You are an expert UI/UX developer. Generates ONLY valid HTML code using Tailwind CSS classes based on the user request. CRITICAL: Do NOT wrap the code in markdown code blocks (\`\`\`html). Do NOT include any explanations or extra text outside the HTML code.`;
 
-    // 2. Chamada HTTP direta para a API do Groq (Compatível com Navegador)
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
@@ -60,7 +56,6 @@ async function generateComponent() {
 
     const generatedCode = data.choices[0]?.message?.content || '';
 
-    // 3. Renderiza o Visual + a Caixa de Código HTML para copiar
     previewContainer.innerHTML = `
       <div class="w-full flex flex-col gap-6 items-center">
         <div class="w-full flex justify-center items-center p-4">
@@ -78,8 +73,7 @@ async function generateComponent() {
         </div>
       </div>
     `;
-
-    // Botão de copiar
+    
     const copyBtn = document.getElementById('copyCodeBtn');
     copyBtn?.addEventListener('click', () => {
       navigator.clipboard.writeText(generatedCode);
