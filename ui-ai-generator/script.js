@@ -1,9 +1,9 @@
-// Cole sua chave real do Groq aqui (que começa com gsk_...)
-const GROQ_API_KEY = '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';
+
+const GROQ_API_KEY = prompt('Paste your Groq API key:') || '';
 const promptInput = document.getElementById('promptInput');
 const generateBtn = document.getElementById('generateBtn');
 const previewContainer = document.getElementById('previewContainer');
-// 1. Atalho: Enviar ao apertar Enter (sem dar quebra de linha)
+
 promptInput?.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
@@ -17,7 +17,7 @@ async function generateComponent() {
         alert('Please write a prompt first!');
         return;
     }
-    // Estado de Carregamento
+    
     generateBtn.disabled = true;
     generateBtn.innerText = 'Generating... ⚡';
     previewContainer.innerHTML = `
@@ -48,7 +48,7 @@ async function generateComponent() {
             throw new Error(data.error.message || 'Error connecting to Groq');
         }
         const generatedCode = data.choices[0]?.message?.content || '';
-        // 3. Renderiza o Visual + a Caixa de Código HTML para copiar
+
         previewContainer.innerHTML = `
       <div class="w-full flex flex-col gap-6 items-center">
         <div class="w-full flex justify-center items-center p-4">
@@ -66,7 +66,7 @@ async function generateComponent() {
         </div>
       </div>
     `;
-        // Botão de copiar
+
         const copyBtn = document.getElementById('copyCodeBtn');
         copyBtn?.addEventListener('click', () => {
             navigator.clipboard.writeText(generatedCode);
